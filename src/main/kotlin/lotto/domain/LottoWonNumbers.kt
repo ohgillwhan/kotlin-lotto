@@ -6,6 +6,11 @@ data class LottoWonNumbers(private val lottoNumber: Set<LottoNumber>, private va
         require(!lottoNumber.contains(bonusNumber)) { "당첨 로또 번호에는 보너스 당첨번호가 존재해서는 안됩니다." }
     }
 
+    constructor(lottoNumber: Set<Int>, bonusNumber: Int) : this(
+        lottoNumber.map { LottoNumber.from(it) }.toSet(),
+        LottoNumber.from(bonusNumber)
+    )
+
     fun match(lottoTickets: LottoTickets): LottoRanks {
         val rankCount: Map<Rank, Int> = lottoTickets
             .map {
@@ -23,9 +28,4 @@ data class LottoWonNumbers(private val lottoNumber: Set<LottoNumber>, private va
 
         return Rank.getRankByCount(wonNumberCount, matchBonus)
     }
-
-    constructor(lottoNumber: Set<Int>, bonusNumber: Int) : this(
-        lottoNumber.map { LottoNumber.from(it) }.toSet(),
-        LottoNumber.from(bonusNumber)
-    )
 }
