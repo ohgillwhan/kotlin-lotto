@@ -1,5 +1,6 @@
 package lotto.view
 
+import lotto.domain.LottoTicket
 import lotto.view.input.ManualLottoInputs
 import lotto.view.input.AmountInput
 import lotto.view.input.ManualLottoInput
@@ -41,12 +42,12 @@ class InputView {
         return BonusInput(readLine)
     }
 
-    tailrec fun inputManualCount(): ManualCountInput {
+    tailrec fun inputManualCount(amountInput: AmountInput): ManualCountInput {
         println("수동으로 구매할 로또 수를 입력해 주세요.")
 
         val readLine = readLine()
-        if (readLine.isNullOrEmpty()) {
-            return inputManualCount()
+        if (readLine.isNullOrEmpty() || amountInput.lottoCountLessThen(readLine.toInt())) {
+            return inputManualCount(amountInput)
         }
 
         return ManualCountInput(readLine)

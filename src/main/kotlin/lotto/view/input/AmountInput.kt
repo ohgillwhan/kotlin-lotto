@@ -13,7 +13,11 @@ data class AmountInput(val amount: Int) {
 
     constructor(lottoCount: String) : this(lottoCount.toIntOrNull() ?: throw IllegalArgumentException("금액은 숫자야여 합니다."))
 
+    fun lottoCountLessThen(amount: Int): Boolean {
+        return lottoCount < amount
+    }
+
     companion object {
-        private const val PER_LOTTO_PRICE = 1000
+        const val PER_LOTTO_PRICE = 1000
     }
 }

@@ -15,7 +15,7 @@ fun main() {
     val resultView = ResultView()
 
     val amountInput: AmountInput = inputView.amoutInput()
-    val manualCountInput: ManualCountInput = inputView.inputManualCount()
+    val manualCountInput: ManualCountInput = inputView.inputManualCount(amountInput)
     val manualLottoInput: ManualLottoInputs = inputView.inputManualLottoTickets(manualCountInput)
 
     val lottoEachCountCalculator = LottoEachCountCalculator(amountInput.lottoCount, manualCountInput.lottoCount)
