@@ -1,6 +1,5 @@
 package lotto.view
 
-import lotto.domain.LottoTicket
 import lotto.view.input.ManualLottoInputs
 import lotto.view.input.AmountInput
 import lotto.view.input.ManualLottoInput
