@@ -16,7 +16,7 @@ data class LottoNumber(val number: Int) {
         private val NUMBERS: Map<Int, LottoNumber> = (LOTTO_MINIMUM_NUMBER..LOTTO_MAXIMUM_NUMBER).associateWith(::LottoNumber)
 
         fun from(value: Int): LottoNumber {
-            return NUMBERS[value] ?: throw IllegalArgumentException()
+            return NUMBERS[value] ?: throw IllegalArgumentException("로또 번호는 1~45 사이여야 합니다.")
         }
     }
 }
