@@ -20,6 +20,6 @@ data class LottoTickets(private val lottoTickets: List<LottoTicket>) : List<Lott
     )
 
     companion object {
-        private fun createLotto(count: Int, generator: LottoNumberGenerator): List<LottoTicket> = (1..count).map { LottoTicket(generator) }.toList()
+        private fun createLotto(count: Int, generator: LottoNumberGenerator): List<LottoTicket> = (1..count).map { LottoTicket(generator.pickNumber()) }.toList()
     }
 }

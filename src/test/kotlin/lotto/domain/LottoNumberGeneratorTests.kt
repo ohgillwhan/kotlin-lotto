@@ -18,11 +18,7 @@ class LottoNumberGeneratorTests {
 
         val firstWonNumber = 원하는_대로_만들어_주는_제너레이터(random = listOf(1, 2, 3, 4, 5, 6))
 
-        val lottoTickets = LottoTickets(
-            mutableListOf(
-                LottoTicket(firstWonNumber)
-            )
-        )
+        val lottoTickets = LottoTickets(1, firstWonNumber)
 
         val matchByWonNumber = LottoWonNumbers(wonNumber, LottoNumber(10)).match(lottoTickets)
 
